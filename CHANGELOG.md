@@ -6,6 +6,13 @@ All notable changes to this project are documented here. The format is based on
 
 ## [Unreleased]
 
+### Fixed
+- The premium long-context marker now reads `⚠️ 200k+`: U+26A0 is drawn two
+  cells wide by most terminal fonts but counted as one cell (wcwidth 1), so the
+  sign overlapped the `2` — and a space alone still lets the next cell clip the
+  glyph under a multiplexer such as tmux. The variation selector U+FE0F declares
+  the emoji width so the cell count matches the glyph; the space keeps it legible.
+
 ## [1.7.0] — 2026-07-28
 
 ### Added
